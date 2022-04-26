@@ -6,6 +6,10 @@ public class NematodeSchool : MonoBehaviour
 {
     public GameObject prefab;
 
+    private Constrain constrain;
+    GameObject nematode;
+
+
     [Range (1, 5000)]
     public int radius = 50;
     
@@ -15,6 +19,12 @@ public class NematodeSchool : MonoBehaviour
     void Awake()
     {
         // Put your code here
+        for (int i = 0; i < count; i ++)
+        {
+            nematode = Instantiate(prefab);
+            constrain = nematode.transform.GetChild(0).GetComponent<Constrain>();
+            constrain.radius = radius;
+        }
     }
 
     // Update is called once per frame
